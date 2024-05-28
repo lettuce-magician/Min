@@ -31,7 +31,7 @@ local Make, State, Changed = Min.Make, Min.State, Min.Changed
 local AnState = State(0)
 Make("Frame", {
     Name = "Hello", -- direct declaration
-    Destroyed = function(Inst) -- declaration for functions, which always receive the instance as its argument and then any argument passed by the function
+    Destroyed = function(Inst) -- declaration for events, which always receive the instance as its argument and then any argument passed by it
 
     end,
     Text = AnState, -- reactive declaration, prop changes if state/derived changes
