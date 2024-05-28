@@ -1,0 +1,10 @@
+{
+  "rules": [
+    "remove_comments",
+    "remove_spaces",
+    "convert_local_function_to_function_assign",
+    "remove_function_call_parens",
+    "remove_nil_declaration",
+    "group_local_assignment"
+  ]
+}

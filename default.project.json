@@ -1,0 +1,16 @@
+{
+    "name": "Min",
+    "tree": {
+      "$className": "DataModel",
+      "ReplicatedStorage": {
+        "Min": {
+            "$path":"src"
+        }
+      },
+      "StarterGui": {
+        "test":{
+            "$path":"test"
+        }
+      }
+    }
+  }
