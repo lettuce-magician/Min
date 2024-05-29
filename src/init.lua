@@ -24,6 +24,7 @@ export type T_Props = {
 
 local function captureDeps(fn)
     -- TODO: need to see if this captures inner states too
+    -- e.g inside if statements
     local prevDeps = deps
     deps = table.clone(__initdeps)
     deps.closed = nil
