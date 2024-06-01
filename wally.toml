@@ -1,10 +1,12 @@
 [package]
 name = "letiul/min"
+description = "minimal and simple UI library"
 version = "1.1.0"
+license = "MIT"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
-include = ["src"]
-exclude = []
+include = ["src","src/init.lua","src/init.min.lua"]
+exclude = ["*"]
 
 
 [dependencies]
