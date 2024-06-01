@@ -1,6 +1,6 @@
 [package]
-name = "leonardo/min"
-version = "0.1.0"
+name = "letiul/min"
+version = "1.1"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 

@@ -94,6 +94,8 @@ local function applyProps(Inst:Instance, Props:T_Props)
             table.insert(Hooks, Value)
         elseif typeof(Value) == "Instance" then
             Value.Parent = Inst
+        else
+            error("Invalid/Nil property for "..Inst.Name..": "..Key)
         end
     end
 
@@ -265,6 +267,31 @@ local function Ref(value:State<Instance>)
         value.value = inst
     end
 end
+
+local function ForPairs<K,V>(tbl:{[K]:V}, fn:(inst:Instance,k:K,v:V)->())
+    return function (inst)
+        for K, V in tbl do
+            fn(inst,K,V)
+        end
+    end
+end
+
+local function Iter<V>(tbl:{[number]:V}, fn:(inst:Instance,i:number,v:V)->())
+    return function (inst)
+        for I, V in ipairs(tbl) do
+            fn(inst,I,V)
+        end
+    end
+end
+
+local function Child(name:string, toHydrate:T_Props)
+    return function(inst:Instance)
+        local child = inst:FindFirstChild(name)
+        assert(child, name.." is not a child of "..inst.Name)
+
+        Make(child,toHydrate)
+    end
+end
  
 return table.freeze {
     Make = Make,
@@ -274,6 +301,9 @@ return table.freeze {
     Changed = Changed,
     Bind = Bind,
     Ref = Ref,
+    ForPairs = ForPairs,
+    Iter = Iter,
+    Child = Child,
     Component = Component,
-    Empty = function<P..., R...>(...:P...): R... end
+    Empty = function() end
 }
